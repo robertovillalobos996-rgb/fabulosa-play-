@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FABULOSA PLAY — TV + RADIO + FACEBOOK + SALUDOS</title>
+<style>
+body{margin:0;background:#000;color:#fff;font-family:sans-serif;}
+.header-video-bg{position:absolute;top:0;left:0;width:100%;height:220px;overflow:hidden;z-index:-1;}
+.header-video-bg video{width:100%;height:100%;object-fit:cover;}
+.header-fab{position:relative;width:100%;height:220px;display:flex;align-items:center;justify-content:center;padding:0 40px;z-index:10;background:linear-gradient(to bottom,#0008,#0002);}
+.logo-img img{width:300px;height:auto;animation:lp 4s ease-in-out 1, lf 6s ease-in-out infinite;filter:drop-shadow(0 0 12px #fff);}
+@keyframes lp{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+main{padding:40px;font-size:16px;margin-top:0;}
+.card{background:#111;padding:20px;border-radius:16px;margin:0 auto 24px auto;max-width:1100px;box-shadow:0 10px 30px #000a;}
+.card h2{margin:0 0 14px;font-size:1.4rem;}
+.radio-romantica-wrapper{position:relative;max-width:1100px;margin:0 auto 40px auto;}
+.radio-romantica{position:relative;z-index:3;padding:22px 20px 18px;border-radius:22px;background:radial-gradient(circle at 0% 0%,#ffd1dc 0,#ff4b6b 35%,#b30033 100%);box-shadow:0 16px 40px rgba(255,0,80,0.55);overflow:hidden;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);}
+.radio-title{text-align:center;font-size:1.4rem;font-weight:800;margin:0 0 12px;}
+.radio-iframe{width:100%;border-radius:14px;border:none;overflow:hidden;box-shadow:0 10px 26px rgba(40,0,0,0.75);}
+#hearts{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:6;}
+.heart{position:absolute;color:rgba(255,255,255,0.75);font-size:22px;animation:float 6s linear infinite;}
+@keyframes float{0%{transform:translateY(40px) scale(1);opacity:1;}100%{transform:translateY(-120px) scale(1.8);opacity:0;}}
+.section-3col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1100px;margin:0 auto;}
+.carousel-box{background:#111;padding:15px;border-radius:16px;text-align:center;}
+.carousel-box img{width:100%;border-radius:12px;transition:opacity 0.5s ease-in-out;}
+.contact-box{background:#111;padding:20px;border-radius:16px;}
+.contact-box h3{text-align:center;margin:0 0 12px;font-size:1.3rem;font-weight:800;}
+.contact-box input,.contact-box textarea{width:100%;padding:10px;border:none;border-radius:8px;margin-bottom:10px;}
+.contact-box button{width:100%;padding:12px;background:#ff4b6b;color:#fff;border:none;font-size:1rem;font-weight:700;border-radius:10px;cursor:pointer;}
+.icon{font-size:18px;margin-right:6px;}
+</style>
+</head>
+<body>
+<div class="header-video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="static/uploads/videos/alexius-tv-6.mp4" type="video/mp4">
+  </video>
+</div>
+<header class="header-fab"><div class="logo-img"><img src="static/uploads/logo/logo-fabulosa-play.png"></div></header>
+<main>
+<div class="card"><h2>FABULOSA PLAY — TV EN VIVO</h2>
+<iframe src="https://ssh101.com/securelive/index.php?id=fabulosa" width="100%" height="480" allowfullscreen style="border-radius:12px;border:none;"></iframe>
+</div>
+
+<div class="radio-romantica-wrapper">
+  <div id="hearts"></div>
+  <div class="radio-romantica">
+    <h2 class="radio-title">Radio Fabulosa Romántica ❤️</h2>
+    <iframe class="radio-iframe" src="https://dattavolt.com/cp/widgets/player/single/?p=8030" height="130"></iframe>
+  </div>
+</div>
+
+<div class="section-3col">
+
+  <!-- FACEBOOK ACTUALIZADO -->
+  <div class="card">
+    <h2>Facebook Paso Canoas Informa</h2>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+      src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v19.0">
+    </script>
+
+    <div class="fb-page"
+      data-href="https://www.facebook.com/pasocanoasinforma"
+      data-tabs="timeline"
+      data-width="340"
+      data-height="400"
+      data-small-header="false"
+      data-adapt-container-width="true"
+      data-hide-cover="false"
+      data-show-facepile="true">
+    </div>
+  </div>
+
+  <div class="carousel-box"><h2>Publicidad</h2>
+    <img id="car-img" src="static/uploads/publicidad/publi1.jpg">
+  </div>
+
+  <div class="contact-box">
+    <h3>Saludos y Complacencias</h3>
+    <form action="mailto:pscinfo36@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="📧 Tu correo" required>
+      <textarea name="mensaje" rows="4" placeholder="Tu saludo o complacencia…" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p style="margin-top:10px;font-size:14px;"><span class="icon">📞</span>6126-6261<br><span class="icon">📧</span>pscinfo36@gmail.com</p>
+  </div>
+
+</div>
+</main>
+
+<script>
+function crearCorazon(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*90+"%";
+  heart.style.top="120px";
+  document.getElementById("hearts").appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+setInterval(crearCorazon,900);
+
+const imgs=[
+  "static/uploads/publicidad/publi1.jpg",
+  "static/uploads/publicidad/publi2.jpeg",
+  "static/uploads/publicidad/publi3.jpeg",
+  "static/uploads/publicidad/publi4.jpeg"
+];
+let i=0;
+setInterval(()=>{
+  i=(i+1)%imgs.length;
+  const img=document.getElementById("car-img");
+  img.style.opacity="0";
+  setTimeout(()=>{img.src=imgs[i];img.style.opacity="1";},500);
+},3500);
+</script>
+
+</body>
+</html>
